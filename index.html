@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width-device-width, initial-scale=1.0">
+	<title>Animation using HTML and CSS - Remoto</title>
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600&display=swap');
+		*
+		{
+			margin: 0;
+			padding: 0;
+			outline: none;
+			box-sizing: border-box;
+		}
+		body
+		{
+			font-family: 'Plus Jakarta Sans', sans-serif;
+			background: linear-gradient(185deg, white 80%, chocolate);
+			overflow-x: hidden;
+		}
+		.main-wrapper
+		{
+			position: relative;
+			height: 100vh;
+			overflow: hidden;
+			justify-content: space-between;
+		}
+		.main-logo h3
+		{
+			cursor: pointer;
+			color: chocolate;
+		}
+		header
+		{
+			padding: 50px 100px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+		header ul li
+		{
+			list-style: none;
+			display: inline-block;
+			margin: 0 10px;
+			font-size: 15px;
+		}
+		header ul li a
+		{
+			color: black;
+			text-decoration: none;
+			transition: all ease 0.3s;
+			margin: 20px;
+		}
+		header ul li a:hover
+		{
+			color: chocolate;
+		}
+		header ul li a.btn
+		{
+			display: inline-block;
+			width: 120px;
+			height: 60px;
+			line-height: 60px;
+			background-color: chocolate;
+			color: white;
+			text-align: center;
+			border-radius: 30px;
+			transition: all ease 0.3s;
+			font-size: 15px;
+		}
+		header ul li a.btn:hover
+		{
+			color: black;
+		}
+		.content
+		{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			padding: 10px 100px 0;
+			margin-top: 50px;
+		}
+		.loremipsum-text
+		{
+			width: 50%;
+			padding-right: 150px;
+		}
+		.loremipsum-text p
+		{
+			font-size: 28px;
+			line-height: 46px;
+			color: black;
+		}
+		.loremipsum-text p span
+		{
+			color: chocolate;
+		}
+		.loremipsum-text a
+		{
+			position: relative;
+			display: inline-block;
+			font-size: 18px;
+			color: black;
+			text-decoration: none;
+			padding: 18px 30px;
+			letter-spacing: 2px;
+			font-weight: 500px;
+			margin-top: 100px;
+			font-family: 'Plus Jakarta Sans', sans-serif;
+		}
+		.loremipsum-text a:before
+		{
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 60px;
+			height: 60px;
+			border-radius: 30px;
+			background-color: chocolate;
+			z-index: -1;
+			transition: all ease 0.3s;
+		}
+		.loremipsum-text a:hover:before
+		{
+			width: 100%;
+		}
+		.img
+		{
+			position: relative;
+			width: 500px;
+			height: 500px;
+			background: radial-gradient(530px, chocolate, transparent 50%);
+			margin-top: -50px;
+		}
+		.email-icon
+		{
+			position: absolute;
+			top: 47%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			height: 200px;
+			width: 200px;
+			cursor: pointer;
+		}
+		.social-img
+		{
+			height: 100%;
+			animation: rotation 60s linear infinite;
+		}
+		@keyframes rotation
+		{
+			100%
+			{
+				transform: rotate(360deg);
+			}
+		}
+		.social-img img
+		{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background: radial-gradient(200px, chocolate, transparent 50%);
+			border-radius: 100px;
+			outline: 1px solid chocolate;
+			cursor: pointer;
+		}
+		.social-img img:nth-child(1)
+		{
+			top: -5%;
+			left: 42%;
+		}
+		.social-img img:nth-child(2)
+		{
+			top: 25%;
+			right: 0;
+		}
+		.social-img img:nth-child(3)
+		{
+			top: 71%;
+			left: 70%;
+		}
+		.social-img img:nth-child(4)
+		{
+			top: 25%;
+			left: 0;
+		}
+		.social-img img:nth-child(5)
+		{
+			top: 71%;
+			left: 12%;
+		}
+		/* SUB MENU FOR PRODUCT */
+		ul ul
+		{
+			max-width: 250px;
+			position: absolute;
+			padding: 0 0;
+			opacity: 0;
+			z-index: -9999;
+			transition: all ease 0.3s;
+		}
+		ul li:hover ul
+		{
+			opacity: 1;
+			z-index: 9;
+			padding: 10px 0;
+		}
+		ul ul li
+		{
+			margin: 0;
+			width: 100%;
+		}
+		ul ul li a
+		{
+			width: 100%;
+			display: inline-block;
+			padding: 20px;
+			background-color: darkgray;
+			color: white;
+		}
+		ul ul li:first-child a
+		{
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+		}
+		ul ul li:last-child a
+		{
+			border-bottom-left-radius: 10px;
+			border-bottom-right-radius: 10px;
+		}
+		ul ul li a:hover
+		{
+			background-color: chocolate;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<div class="main-wrapper">
+			<header>
+				<div class="main-logo">
+					<h3>REMTSON SHOES</h3>
+				</div>
+				<nav>
+					<ul>
+						<li><a href="#">PRODUCT</a>
+							<ul>
+								<li><a href="#">GIANNA</a></li>
+								<li><a href="#">SYDNEY</a></li>
+								<li><a href="#">MYLA</a></li>
+								<li><a href="#">ALEXANDRIA</a></li>
+							</ul>
+						</li>
+						<li><a href="#">ABOUT</a></li>
+						<li><a href="#">PRICING</a></li>
+						<li><a href="#">HOME</a></li>
+						<li><a href="#" class="btn">SIGN UP</a></li>
+					</ul>
+				</nav>
+			</header>
+			<div class="content">
+				<div class="loremipsum-text">
+					<p>Lorem Ipsum is simply dummy text of the <span>printing and typesetting</span> industry.</p>
+					<a href="#" class="btn">GET STARTED</a>&nbsp&nbsp&nbsp&nbsp&nbsp
+					<a href="#" class="btn">GET APP</a>
+				</div>
+				<div class="img">
+					<div class="social-img">
+						<img src="facebook.svg">
+						<img src="github.svg">
+						<img src="instagram.svg">
+						<img src="twitter.svg">
+						<img src="linkedin.svg">
+					</div>
+					<img src="envelope.svg" class="email-icon">
+				</div>
+			</div>
+		</div>
+	</section>
+
+</body>
+</html>
